@@ -95,12 +95,12 @@ nav {
   background-color: var(--color-accent-dark);
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  color: var(--color-text-primary) !important;
+  color: var(--color-text-primary);
   text-transform: uppercase;
   font-weight: 700;
 }
 
-/* 3. SECCIÓN INTRO */
+/* SECCIÓN INTRO */
 
 #intro {
   display: flex;
@@ -169,8 +169,6 @@ button,
 .stat-item {
   transition: all 0.3s ease;
 }
-
-/*  Botones y Enlaces de Navegación */
 
 .nav-links a:hover {
   color: var(--color-accent);
@@ -263,7 +261,7 @@ button,
   margin-top: var(--spacing-small);
 }
 
-/* 5. TIMELINE (ESTUDIOS) */
+/* TIMELINE (ESTUDIOS) */
 
 .timeline-list {
   list-style: none;
@@ -307,7 +305,7 @@ button,
   margin-top: 5px;
 }
 
-/* 6. CONTACTO Y FORMULARIO */
+/* CONTACTO Y FORMULARIO */
 
 .contact-form {
   max-width: 600px;
@@ -346,8 +344,6 @@ button,
   align-self: flex-start;
 }
 
-/* ESTILO PARA EL BOTÓN DE PLATZI  */
-
 .button-platzi {
   display: inline-block;
   text-decoration: none;
@@ -367,7 +363,7 @@ button,
   transform: translateY(-2px);
 }
 
-/*  MEDIA QUERIES */
+/* MEDIA QUERIES */
 
 @media (max-width: 768px) {
   .proyecto-item {
