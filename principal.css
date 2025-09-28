@@ -1,53 +1,64 @@
 /* =========================================
-   VARIABLES
+   1. VARIABLES Y ESTILOS BASE
    ========================================= */
 
 :root {
-  /* Paleta de colores (Estilo Dark Navy) */
-  --dark-navy: #0a192f;
-  --light-navy: #112240;
-  --lightest-navy: #233554;
-  --slate: #8892b0; /* Texto secundario */
-  --light-slate: #a8b2d1; /* Texto principal de párrafos */
-  --lightest-slate: #ccd6f6; /* Títulos y texto claro */
-  --white: #e6f1ff;
-  --green: #64ffda; /* Color de ACENTO (El toque de impacto) */
+  /* Paleta de colores - Oscura y moderna */
+  --color-dark-bg: #141414; /* Fondo principal oscuro */
+  --color-card-bg: #1c1c1c; /* Fondo de tarjetas/secciones */
+  --color-text-primary: #e0e0e0; /* Texto claro */
+  --color-text-secondary: #a0a0a0; /* Texto secundario/descripciones */
+  --color-accent: #00bcd4; /* Cian/Azul vibrante, el color de "impacto" */
+  --color-accent-dark: #00838f;
 
   /* Tipografía */
-  --font-sans: "Inter", sans-serif;
-  --font-mono: "Fira Code", monospace;
+  --font-inter: "Inter", sans-serif;
+  --font-code: "Fira Code", monospace;
+
+  /* Espaciado */
+  --spacing-large: 4rem;
+  --spacing-medium: 2rem;
+  --spacing-small: 1rem;
 }
 
-/* =========================================
-   1. RESET Y BASE
-   ========================================= */
-
+/* Reset básico y fondo oscuro */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* Transición general para suavizar todos los efectos hover */
-  transition: all 0.3s ease;
 }
 
 body {
-  background-color: var(--dark-navy);
-  color: var(--slate);
-  font-family: var(--font-sans);
+  font-family: var(--font-inter);
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-primary);
   line-height: 1.6;
 }
 
 #container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 0 150px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium);
 }
 
-/* Enlaces por defecto */
-a {
-  text-decoration: none;
-  color: var(--green);
+section {
+  padding: var(--spacing-large) 0;
+  min-height: 80vh; /* Para que las secciones se vean grandes */
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-small);
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-medium);
+  border-bottom: 2px solid var(--color-accent-dark); /* Línea sutil de separación */
+  display: inline-block;
+  padding-bottom: 0.5rem;
 }
 
 /* =========================================
@@ -58,575 +69,319 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: var(--spacing-medium) 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(
+    --color-dark-bg
+  ); /* Mantiene el color al hacer scroll */
 }
 
-nav .logo {
-  font-family: var(--font-mono);
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--green);
-  border: 2px solid var(--green);
-  padding: 5px 12px;
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent); /* El logo usa el color de acento */
+  font-family: var(--font-code);
 }
 
-nav .nav-links {
+.nav-links {
   list-style: none;
   display: flex;
-  align-items: center;
+  gap: var(--spacing-medium);
 }
 
-nav .nav-links li {
-  margin-left: 30px;
-  font-family: var(--font-mono);
-  font-size: 14px;
-}
-
-nav .nav-links a {
-  color: var(--lightest-slate);
+.nav-links a {
   text-decoration: none;
+  color: var(--color-text-primary);
   transition: color 0.3s;
 }
 
-nav .nav-links a:hover {
-  color: var(--green);
+.nav-links a:hover {
+  color: var(--color-accent);
 }
 
-/* Botón GitHub */
+/* Estilo del botón de GitHub */
 .button-resume {
-  border: 1px solid var(--green);
-  padding: 10px 15px;
+  background-color: var(--color-accent-dark);
+  padding: 0.5rem 1rem;
   border-radius: 4px;
-  color: var(--green) !important;
-  transition:
-    background-color 0.3s,
-    color 0.3s,
-    transform 0.2s;
-}
-
-.button-resume:hover {
-  background-color: rgba(100, 255, 218, 0.1);
-  color: var(--green) !important;
-  transform: translateY(-2px);
+  color: var(--color-text-primary) !important;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 /* =========================================
-   3. CONTENIDO PRINCIPAL E INTRO
+   3. SECCIÓN INTRO (EL IMPACTO DE GARY)
    ========================================= */
 
-main {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
 #intro {
-  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 90vh;
 }
 
-#intro .greeting {
-  color: var(--green);
-  font-family: var(--font-mono);
-  font-size: 16px;
-  margin-bottom: 20px;
+.greeting {
+  color: var(--color-accent);
+  font-family: var(--font-code);
+  margin-bottom: var(--spacing-small);
 }
 
-#intro .name {
-  font-size: 70px;
-  color: var(--lightest-slate);
-  font-weight: bold;
-  margin-bottom: 10px;
+.name {
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-text-primary);
 }
 
-#intro .subtitle {
-  font-size: 60px;
-  /* Corregido: más brillo para el subtítulo */
-  color: var(--light-slate);
-  font-weight: bold;
-  margin-bottom: 20px;
+.subtitle {
+  font-size: 2rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-medium);
 }
 
-#intro .description {
-  font-size: 18px;
-  max-width: 540px;
-  margin-bottom: 40px;
-  color: var(--light-slate);
+.description {
+  max-width: 600px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-medium);
 }
 
-/* --- ESTADÍSTICAS (Estilo Gary/Impacto) --- */
+/* --- ESTADÍSTICAS (El toque de Gary) --- */
 .stats-grid {
   display: flex;
-  gap: 20px;
-  margin: 20px 0 40px;
+  gap: var(--spacing-medium);
+  margin: var(--spacing-medium) 0 var(--spacing-large);
 }
 
 .stat-item {
-  background-color: var(--light-navy);
-  padding: 20px 25px;
-  border-radius: 4px;
+  background-color: var(--color-card-bg);
+  padding: var(--spacing-medium);
+  border-radius: 8px;
   text-align: center;
   min-width: 150px;
-  transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px -10px rgba(100, 255, 218, 0.4);
 }
 
 .stat-number,
 .stat-text {
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: var(--green); /* ACENTO CLAVE */
+  color: var(--color-accent); /* ¡Aquí es donde el impacto visual ocurre! */
   display: block;
   line-height: 1.2;
-  font-family: var(--font-mono);
 }
 
 .stat-label {
-  color: var(--slate);
-  margin-top: 5px;
-  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
 }
 /* ------------------------------------------ */
 
+/* Botón principal */
 .button-main {
-  color: var(--green);
-  background-color: transparent;
-  border: 1px solid var(--green);
-  padding: 15px 25px;
-  border-radius: 4px;
   text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 14px;
+  background-color: var(--color-accent);
+  color: var(--color-dark-bg);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-weight: 700;
   transition:
     background-color 0.3s,
     transform 0.2s;
 }
 
 .button-main:hover {
-  background-color: rgba(100, 255, 218, 0.1);
-  transform: translateY(-2px);
+  background-color: var(--color-accent-dark);
+  color: var(--color-text-primary);
+  transform: translateY(-2px); /* Pequeño efecto hover */
 }
 
 /* =========================================
-   4. SECCIÓN PROYECTOS
+   4. SECCIÓN PROYECTOS (MÉTRICAS Y STACK)
    ========================================= */
 
-#proyectos {
-  max-width: 1000px;
-  margin: 100px auto;
-  padding-top: 100px;
+#proyectos ul {
+  list-style: none;
 }
-
-#proyectos h2 {
-  display: flex;
-  align-items: center;
-  font-size: 32px;
-  color: var(--lightest-slate);
-  margin-bottom: 40px;
-  white-space: nowrap;
-}
-
-#proyectos h2::after {
-  content: "";
-  display: block;
-  width: 300px;
-  height: 1px;
-  background-color: var(--lightest-navy);
-  margin-left: 20px;
-}
-
-/* Estilos para tarjetas de PROYECTO */
 
 .proyecto-item {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 10px;
+  background-color: var(--color-card-bg);
+  padding: var(--spacing-large);
+  border-radius: 8px;
+  margin-bottom: var(--spacing-large);
+  display: flex;
+  gap: var(--spacing-large);
   align-items: center;
-  margin-bottom: 80px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
-.proyecto-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.8);
+/* Invertir el orden para el diseño 'rtl' (right-to-left) */
+.proyecto-item.rtl {
+  flex-direction: row-reverse;
 }
 
 .proyecto-contenido {
-  grid-column: 1 / 8;
-  grid-row: 1 / -1;
-  position: relative;
-  z-index: 2;
-  text-align: left;
-}
-
-.proyecto-titulo {
-  color: var(--lightest-slate);
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.proyecto-descripcion {
-  background-color: var(--light-navy);
-  padding: 25px;
-  border-radius: 4px;
-  color: var(--light-slate);
-  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-}
-
-/* Clave para backend: destacar las tecnologías */
-.tech-stack {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--lightest-slate);
-  margin-top: 10px;
-  display: block;
-  border-left: 3px solid var(--green);
-  padding-left: 10px;
-  background-color: rgba(17, 34, 64, 0.5);
-  margin-bottom: 0;
+  flex: 1;
 }
 
 .proyecto-imagen {
-  grid-column: 6 / -1;
-  grid-row: 1 / -1;
-  position: relative;
-}
-
-.proyecto-imagen a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--green);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.proyecto-imagen a::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: var(--dark-navy);
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-}
-
-.proyecto-imagen a:hover::before {
-  opacity: 0;
+  flex: 1;
+  max-width: 50%; /* Controla el tamaño de la imagen */
 }
 
 .proyecto-imagen img {
   width: 100%;
-  display: block;
-  mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1);
-  transition: all 0.3s ease;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--color-accent-dark); /* Marco sutil */
+  transition: transform 0.3s;
 }
 
 .proyecto-imagen a:hover img {
-  filter: none;
-  mix-blend-mode: normal;
+  transform: scale(1.02); /* Efecto sutil al pasar el ratón */
 }
 
-/* Estilos para el proyecto invertido (Clase rtl) */
-.proyecto-item.rtl .proyecto-contenido {
-  grid-column: 6 / -1;
-  text-align: right;
+.proyecto-titulo {
+  color: var(--color-accent);
+  font-size: 1.8rem;
 }
 
-.proyecto-item.rtl .proyecto-titulo {
-  text-align: right;
+.proyecto-descripcion {
+  color: var(--color-text-secondary);
+  margin: var(--spacing-small) 0;
 }
 
-.proyecto-item.rtl .proyecto-imagen {
-  grid-column: 1 / 8;
-}
-
-.proyecto-item.rtl .proyecto-contenido .tech-stack {
-  border-left: none;
-  border-right: 3px solid var(--green);
-  padding-left: 0;
-  padding-right: 10px;
+/* Destacar el Stack Técnico (Clave para Backend) */
+.tech-stack {
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  background-color: rgba(0, 188, 212, 0.1); /* Fondo muy suave con el acento */
+  padding: 0.5rem;
+  border-left: 3px solid var(--color-accent);
+  margin-top: var(--spacing-small);
 }
 
 /* =========================================
-   5. SECCIÓN ESTUDIOS (TIMELINE)
+   5. TIMELINE (ESTUDIOS)
    ========================================= */
-#estudios {
-  max-width: 800px;
-  margin: 100px auto;
-  padding-top: 100px;
-}
-
-#estudios h2 {
-  display: flex;
-  align-items: center;
-  font-size: 32px;
-  color: var(--lightest-slate);
-  margin-bottom: 40px;
-  white-space: nowrap;
-}
-
-#estudios h2::after {
-  content: "";
-  display: block;
-  width: 300px;
-  height: 1px;
-  background-color: var(--lightest-navy);
-  margin-left: 20px;
-}
-
 .timeline-list {
   list-style: none;
-  padding: 0;
   position: relative;
+  padding-left: 20px;
 }
 
-/* LÍNEA VERTICAL */
+/* Línea vertical de la línea de tiempo */
 .timeline-list::before {
   content: "";
   position: absolute;
-  top: 10px;
-  left: 6px;
-  width: 2px;
+  left: 0;
+  top: 0;
   height: 100%;
-  background-color: var(--lightest-navy);
+  width: 2px;
+  background-color: var(--color-accent-dark);
 }
 
 .timeline-item {
+  margin-bottom: var(--spacing-large);
   position: relative;
-  padding-left: 40px;
-  margin-bottom: 50px;
+  padding-left: 20px;
 }
 
+/* El punto de cada ítem */
 .timeline-item::before {
   content: "";
   position: absolute;
-  top: 8px;
-  left: 0;
-  width: 14px;
-  height: 14px;
+  left: -8px; /* Ajusta para centrar en la línea */
+  top: 5px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
-  background-color: var(--green);
-  z-index: 1;
-}
-
-.timeline-title {
-  color: var(--lightest-slate);
-  font-size: 20px;
-  margin-bottom: 5px;
+  background-color: var(--color-accent);
+  border: 3px solid var(--color-dark-bg); /* Borde para contrastar con el fondo */
 }
 
 .timeline-institution {
-  color: var(--green);
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-weight: 400;
+  margin-top: 5px;
 }
-
-.timeline-date {
-  color: var(--slate);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.timeline-description p {
-  color: var(--light-slate);
-  font-size: 16px;
-}
-
-/* Estilos para la lista de habilidades (tech-list) dentro del timeline */
-.tech-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 10px;
-}
-
-.tech-list li {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--light-slate);
-  padding-left: 15px;
-  position: relative;
-  margin-bottom: 5px;
-}
-
-.tech-list li::before {
-  content: "▹"; /* Un triángulo como bullet point */
-  color: var(--green);
-  position: absolute;
-  left: 0;
-  font-size: 16px;
-  line-height: 1;
-}
-
-/* --- ESTILO PARA EL BOTÓN DE PLATZI --- */
-.button-platzi {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 0.7rem 1.5rem;
-  border-radius: 4px;
-  margin-top: 1rem;
-
-  background-color: transparent;
-  color: var(--green);
-  border: 2px solid var(--green);
-
-  transition: all 0.3s ease;
-}
-
-.button-platzi:hover {
-  background-color: var(--green);
-  color: var(--dark-navy); /* Texto oscuro al hacer hover */
-  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.4);
-  transform: translateY(-2px);
-}
-/* ------------------------------------------ */
 
 /* =========================================
    6. CONTACTO Y FORMULARIO
    ========================================= */
 
-#contacto {
-  padding: 80px 0;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#contacto .p.description {
-  /* Nota: En tu HTML no hay 'p.description', pero lo mantengo por si lo añades */
-  max-width: 600px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-}
-
 .contact-form {
+  max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
+  gap: var(--spacing-medium);
+  background-color: var(--color-card-bg);
+  padding: var(--spacing-medium);
+  border-radius: 8px;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  font-weight: 700;
-  color: var(--lightest-slate);
+  color: var(--color-text-primary);
 }
 
-.form-group input,
-.form-group textarea {
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid var(--lightest-navy); /* Borde sutil */
+  padding: 10px;
+  border: 1px solid var(--color-accent-dark);
   border-radius: 4px;
-  font-size: 16px;
-  background-color: var(--light-navy); /* Fondo del campo de texto */
-  color: var(--lightest-slate);
-  transition: border-color 0.3s ease;
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-inter);
+  font-size: 1rem;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--green); /* Borde de foco con el color de acento */
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+.contact-form textarea {
+  resize: vertical;
 }
 
+/* Ajuste del botón para el formulario */
 .contact-form .button-main {
-  margin-top: 20px;
-  padding: 15px 30px;
-  font-size: 18px;
-  align-self: center;
+  align-self: flex-start; /* Alinea el botón a la izquierda */
 }
 
 /* =========================================
    7. MEDIA QUERIES (RESPONSIVE)
    ========================================= */
 
-@media (max-width: 1080px) {
-  /* Reducir padding horizontal en pantallas medianas */
-  #container {
-    padding: 0 50px;
-  }
-}
-
 @media (max-width: 768px) {
-  #container {
-    padding: 0 25px;
+  /* En móviles, las secciones de proyectos se apilan */
+  .proyecto-item {
+    flex-direction: column;
+    padding: var(--spacing-medium);
   }
 
-  nav .nav-links {
-    display: none; /* Ocultar links en móvil para menú hamburguesa (opcional) */
+  .proyecto-item.rtl {
+    flex-direction: column;
   }
 
-  /* Reducir texto grande en móvil */
-  #intro .name {
-    font-size: 40px;
+  .proyecto-imagen {
+    max-width: 100%;
+    margin-top: var(--spacing-medium);
   }
 
-  #intro .subtitle {
-    font-size: 30px;
-  }
-
-  /* Las estadísticas se apilan mejor en móvil */
+  /* Reducir el tamaño de las estadísticas */
   .stats-grid {
     flex-wrap: wrap;
   }
 
   .stat-item {
-    flex-grow: 1;
+    flex-grow: 1; /* Permite que los ítems crezcan para llenar el espacio */
+    min-width: unset;
   }
 
-  /* Los proyectos se convierten en una sola columna */
-  .proyecto-item {
-    display: block;
-    margin-bottom: 40px;
-  }
-
-  .proyecto-contenido {
-    position: static;
-    margin-bottom: 15px;
-    text-align: left !important; /* Asegura la alineación en móviles */
-  }
-
-  .proyecto-titulo {
-    text-align: left !important;
-  }
-
-  .proyecto-imagen {
-    position: static;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* Restaurar el orden de imagen/contenido para móviles */
-  .proyecto-item.rtl .proyecto-contenido,
-  .proyecto-item.rtl .proyecto-imagen {
-    grid-column: auto;
-  }
-
-  .proyecto-item.rtl .proyecto-contenido {
-    text-align: left;
-  }
-
-  /* El pseudo-elemento de la imagen debe ser menos oscuro en móvil */
-  .proyecto-imagen a::before {
-    opacity: 0.7;
-  }
-
-  #proyectos h2::after,
-  #estudios h2::after {
-    width: 100px;
+  .name {
+    font-size: 3rem;
   }
 }
