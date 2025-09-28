@@ -1,27 +1,21 @@
-/* =========================================
-   1. VARIABLES Y ESTILOS BASE
-   ========================================= */
+/* 1. VARIABLES Y ESTILOS BASE */
 
 :root {
-  /* Paleta de colores - Oscura y moderna */
-  --color-dark-bg: #141414; /* Fondo principal oscuro */
-  --color-card-bg: #1c1c1c; /* Fondo de tarjetas/secciones */
-  --color-text-primary: #e0e0e0; /* Texto claro */
-  --color-text-secondary: #a0a0a0; /* Texto secundario/descripciones */
-  --color-accent: #00bcd4; /* Cian/Azul vibrante, el color de "impacto" */
+  --color-dark-bg: #141414;
+  --color-card-bg: #1c1c1c;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+  --color-accent: #00bcd4;
   --color-accent-dark: #00838f;
 
-  /* Tipografía */
   --font-inter: "Inter", sans-serif;
   --font-code: "Fira Code", monospace;
 
-  /* Espaciado */
   --spacing-large: 4rem;
   --spacing-medium: 2rem;
   --spacing-small: 1rem;
 }
 
-/* Reset básico y fondo oscuro */
 * {
   margin: 0;
   padding: 0;
@@ -43,7 +37,7 @@ body {
 
 section {
   padding: var(--spacing-large) 0;
-  min-height: 80vh; /* Para que las secciones se vean grandes */
+  min-height: 80vh;
 }
 
 h1,
@@ -56,14 +50,12 @@ h3 {
 h2 {
   font-size: 2.5rem;
   margin-bottom: var(--spacing-medium);
-  border-bottom: 2px solid var(--color-accent-dark); /* Línea sutil de separación */
+  border-bottom: 2px solid var(--color-accent-dark);
   display: inline-block;
   padding-bottom: 0.5rem;
 }
 
-/* =========================================
-   2. NAVEGACIÓN
-   ========================================= */
+/* 2. NAVEGACIÓN */
 
 nav {
   display: flex;
@@ -73,15 +65,13 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(
-    --color-dark-bg
-  ); /* Mantiene el color al hacer scroll */
+  background-color: var(--color-dark-bg);
 }
 
 .logo {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--color-accent); /* El logo usa el color de acento */
+  color: var(--color-accent);
   font-family: var(--font-code);
 }
 
@@ -101,7 +91,6 @@ nav {
   color: var(--color-accent);
 }
 
-/* Estilo del botón de GitHub */
 .button-resume {
   background-color: var(--color-accent-dark);
   padding: 0.5rem 1rem;
@@ -111,9 +100,7 @@ nav {
   font-weight: 700;
 }
 
-/* =========================================
-   3. SECCIÓN INTRO (EL IMPACTO DE GARY)
-   ========================================= */
+/* 3. SECCIÓN INTRO */
 
 #intro {
   display: flex;
@@ -147,7 +134,6 @@ nav {
   margin-bottom: var(--spacing-medium);
 }
 
-/* --- ESTADÍSTICAS (El toque de Gary) --- */
 .stats-grid {
   display: flex;
   gap: var(--spacing-medium);
@@ -166,7 +152,7 @@ nav {
 .stat-text {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--color-accent); /* ¡Aquí es donde el impacto visual ocurre! */
+  color: var(--color-accent);
   display: block;
   line-height: 1.2;
 }
@@ -176,30 +162,33 @@ nav {
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
-/* ------------------------------------------ */
 
-/* Botón principal */
-.button-main {
-  text-decoration: none;
-  background-color: var(--color-accent);
-  color: var(--color-dark-bg);
-  padding: 1rem 2rem;
-  border-radius: 4px;
-  font-weight: 700;
-  transition:
-    background-color 0.3s,
-    transform 0.2s;
+a,
+button,
+.proyecto-item,
+.stat-item {
+  transition: all 0.3s ease;
+}
+
+/*  Botones y Enlaces de Navegación */
+
+.nav-links a:hover {
+  color: var(--color-accent);
 }
 
 .button-main:hover {
   background-color: var(--color-accent-dark);
   color: var(--color-text-primary);
-  transform: translateY(-2px); /* Pequeño efecto hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
 }
 
-/* =========================================
-   4. SECCIÓN PROYECTOS (MÉTRICAS Y STACK)
-   ========================================= */
+.button-resume:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* SECCIÓN PROYECTOS */
 
 #proyectos ul {
   list-style: none;
@@ -215,9 +204,22 @@ nav {
   align-items: center;
 }
 
-/* Invertir el orden para el diseño 'rtl' (right-to-left) */
 .proyecto-item.rtl {
   flex-direction: row-reverse;
+}
+.proyecto-item:hover {
+  background-color: #242424;
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
+}
+
+.proyecto-item:hover .proyecto-imagen img {
+  opacity: 0.9;
+  transform: scale(1.01);
+}
+.proyecto-item:hover .proyecto-titulo {
+  color: var(--color-accent);
 }
 
 .proyecto-contenido {
@@ -226,19 +228,19 @@ nav {
 
 .proyecto-imagen {
   flex: 1;
-  max-width: 50%; /* Controla el tamaño de la imagen */
+  max-width: 50%;
 }
 
 .proyecto-imagen img {
   width: 100%;
   height: auto;
   border-radius: 4px;
-  border: 1px solid var(--color-accent-dark); /* Marco sutil */
+  border: 1px solid var(--color-accent-dark);
   transition: transform 0.3s;
 }
 
 .proyecto-imagen a:hover img {
-  transform: scale(1.02); /* Efecto sutil al pasar el ratón */
+  transform: scale(1.02);
 }
 
 .proyecto-titulo {
@@ -251,27 +253,24 @@ nav {
   margin: var(--spacing-small) 0;
 }
 
-/* Destacar el Stack Técnico (Clave para Backend) */
 .tech-stack {
   font-family: var(--font-code);
   font-size: 0.9rem;
   color: var(--color-text-primary);
-  background-color: rgba(0, 188, 212, 0.1); /* Fondo muy suave con el acento */
+  background-color: rgba(0, 188, 212, 0.1);
   padding: 0.5rem;
   border-left: 3px solid var(--color-accent);
   margin-top: var(--spacing-small);
 }
 
-/* =========================================
-   5. TIMELINE (ESTUDIOS)
-   ========================================= */
+/* 5. TIMELINE (ESTUDIOS) */
+
 .timeline-list {
   list-style: none;
   position: relative;
   padding-left: 20px;
 }
 
-/* Línea vertical de la línea de tiempo */
 .timeline-list::before {
   content: "";
   position: absolute;
@@ -288,17 +287,16 @@ nav {
   padding-left: 20px;
 }
 
-/* El punto de cada ítem */
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: -8px; /* Ajusta para centrar en la línea */
+  left: -8px;
   top: 5px;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   background-color: var(--color-accent);
-  border: 3px solid var(--color-dark-bg); /* Borde para contrastar con el fondo */
+  border: 3px solid var(--color-dark-bg);
 }
 
 .timeline-institution {
@@ -309,9 +307,7 @@ nav {
   margin-top: 5px;
 }
 
-/* =========================================
-   6. CONTACTO Y FORMULARIO
-   ========================================= */
+/* 6. CONTACTO Y FORMULARIO */
 
 .contact-form {
   max-width: 600px;
@@ -346,17 +342,34 @@ nav {
   resize: vertical;
 }
 
-/* Ajuste del botón para el formulario */
 .contact-form .button-main {
-  align-self: flex-start; /* Alinea el botón a la izquierda */
+  align-self: flex-start;
 }
 
-/* =========================================
-   7. MEDIA QUERIES (RESPONSIVE)
-   ========================================= */
+/* ESTILO PARA EL BOTÓN DE PLATZI  */
+
+.button-platzi {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  transition: all 0.3s ease;
+}
+.button-platzi:hover {
+  background-color: var(--color-accent);
+  color: var(--color-dark-bg);
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+/*  MEDIA QUERIES */
 
 @media (max-width: 768px) {
-  /* En móviles, las secciones de proyectos se apilan */
   .proyecto-item {
     flex-direction: column;
     padding: var(--spacing-medium);
@@ -371,13 +384,12 @@ nav {
     margin-top: var(--spacing-medium);
   }
 
-  /* Reducir el tamaño de las estadísticas */
   .stats-grid {
     flex-wrap: wrap;
   }
 
   .stat-item {
-    flex-grow: 1; /* Permite que los ítems crezcan para llenar el espacio */
+    flex-grow: 1;
     min-width: unset;
   }
 
