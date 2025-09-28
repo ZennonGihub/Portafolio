@@ -1,24 +1,33 @@
+/* =========================================
+   VARIABLES
+   ========================================= */
+
 :root {
+  /* Paleta de colores (Estilo Dark Navy) */
   --dark-navy: #0a192f;
   --light-navy: #112240;
   --lightest-navy: #233554;
-  --slate: #8892b0;
-  --light-slate: #a8b2d1;
-  --lightest-slate: #ccd6f6;
+  --slate: #8892b0; /* Texto secundario */
+  --light-slate: #a8b2d1; /* Texto principal de párrafos */
+  --lightest-slate: #ccd6f6; /* Títulos y texto claro */
   --white: #e6f1ff;
-  --green: #64ffda;
+  --green: #64ffda; /* Color de ACENTO (El toque de impacto) */
+
+  /* Tipografía */
   --font-sans: "Inter", sans-serif;
   --font-mono: "Fira Code", monospace;
 }
 
-/* Reseteo */
-body,
-h1,
-h2,
-p,
-ul {
+/* =========================================
+   1. RESET Y BASE
+   ========================================= */
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  /* Transición general para suavizar todos los efectos hover */
+  transition: all 0.3s ease;
 }
 
 body {
@@ -35,7 +44,16 @@ body {
   padding: 0 150px;
 }
 
-/* Navbar */
+/* Enlaces por defecto */
+a {
+  text-decoration: none;
+  color: var(--green);
+}
+
+/* =========================================
+   2. NAVEGACIÓN
+   ========================================= */
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -74,14 +92,28 @@ nav .nav-links a:hover {
   color: var(--green);
 }
 
+/* Botón GitHub */
 .button-resume {
   border: 1px solid var(--green);
   padding: 10px 15px;
   border-radius: 4px;
   color: var(--green) !important;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.2s;
 }
 
-/* Contenido Principal */
+.button-resume:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+  color: var(--green) !important;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   3. CONTENIDO PRINCIPAL E INTRO
+   ========================================= */
+
 main {
   flex-grow: 1;
   display: flex;
@@ -109,7 +141,8 @@ main {
 
 #intro .subtitle {
   font-size: 60px;
-  color: var(--slate);
+  /* Corregido: más brillo para el subtítulo */
+  color: var(--light-slate);
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -118,7 +151,46 @@ main {
   font-size: 18px;
   max-width: 540px;
   margin-bottom: 40px;
+  color: var(--light-slate);
 }
+
+/* --- ESTADÍSTICAS (Estilo Gary/Impacto) --- */
+.stats-grid {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0 40px;
+}
+
+.stat-item {
+  background-color: var(--light-navy);
+  padding: 20px 25px;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(100, 255, 218, 0.4);
+}
+
+.stat-number,
+.stat-text {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--green); /* ACENTO CLAVE */
+  display: block;
+  line-height: 1.2;
+  font-family: var(--font-mono);
+}
+
+.stat-label {
+  color: var(--slate);
+  margin-top: 5px;
+  font-size: 14px;
+}
+/* ------------------------------------------ */
 
 .button-main {
   color: var(--green);
@@ -129,14 +201,19 @@ main {
   text-decoration: none;
   font-family: var(--font-mono);
   font-size: 14px;
-  transition: background-color 0.3s;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
 }
 
 .button-main:hover {
   background-color: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
 }
 
-/* Estilos seccion PROYECTOS */
+/* =========================================
+   4. SECCIÓN PROYECTOS
+   ========================================= */
 
 #proyectos {
   max-width: 1000px;
@@ -170,6 +247,14 @@ main {
   gap: 10px;
   align-items: center;
   margin-bottom: 80px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.proyecto-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.8);
 }
 
 .proyecto-contenido {
@@ -181,7 +266,7 @@ main {
 }
 
 .proyecto-titulo {
-  color: var(--slate);
+  color: var(--lightest-slate);
   font-size: 28px;
   margin-bottom: 20px;
 }
@@ -192,6 +277,19 @@ main {
   border-radius: 4px;
   color: var(--light-slate);
   box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+/* Clave para backend: destacar las tecnologías */
+.tech-stack {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--lightest-slate);
+  margin-top: 10px;
+  display: block;
+  border-left: 3px solid var(--green);
+  padding-left: 10px;
+  background-color: rgba(17, 34, 64, 0.5);
+  margin-bottom: 0;
 }
 
 .proyecto-imagen {
@@ -238,7 +336,30 @@ main {
   mix-blend-mode: normal;
 }
 
-/* Estilos seccion de ESTUDIOS */
+/* Estilos para el proyecto invertido (Clase rtl) */
+.proyecto-item.rtl .proyecto-contenido {
+  grid-column: 6 / -1;
+  text-align: right;
+}
+
+.proyecto-item.rtl .proyecto-titulo {
+  text-align: right;
+}
+
+.proyecto-item.rtl .proyecto-imagen {
+  grid-column: 1 / 8;
+}
+
+.proyecto-item.rtl .proyecto-contenido .tech-stack {
+  border-left: none;
+  border-right: 3px solid var(--green);
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+/* =========================================
+   5. SECCIÓN ESTUDIOS (TIMELINE)
+   ========================================= */
 #estudios {
   max-width: 800px;
   margin: 100px auto;
@@ -269,24 +390,6 @@ main {
   position: relative;
 }
 
-.button-platzi {
-  color: var(--green);
-  background-color: transparent;
-  border: 1px solid var(--green);
-  margin-top: 15px;
-  padding: 8px 15px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 14px;
-  transition: background-color 0.3s;
-  display: inline-block;
-}
-
-.button-platzi:hover {
-  background-color: rgba(100, 255, 218, 0.1);
-}
-
 /* LÍNEA VERTICAL */
 .timeline-list::before {
   content: "";
@@ -297,6 +400,7 @@ main {
   height: 100%;
   background-color: var(--lightest-navy);
 }
+
 .timeline-item {
   position: relative;
   padding-left: 40px;
@@ -337,7 +441,58 @@ main {
   font-size: 16px;
 }
 
-/* Contacto */
+/* Estilos para la lista de habilidades (tech-list) dentro del timeline */
+.tech-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.tech-list li {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--light-slate);
+  padding-left: 15px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.tech-list li::before {
+  content: "▹"; /* Un triángulo como bullet point */
+  color: var(--green);
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* --- ESTILO PARA EL BOTÓN DE PLATZI --- */
+.button-platzi {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+
+  background-color: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+
+  transition: all 0.3s ease;
+}
+
+.button-platzi:hover {
+  background-color: var(--green);
+  color: var(--dark-navy); /* Texto oscuro al hacer hover */
+  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.4);
+  transform: translateY(-2px);
+}
+/* ------------------------------------------ */
+
+/* =========================================
+   6. CONTACTO Y FORMULARIO
+   ========================================= */
 
 #contacto {
   padding: 80px 0;
@@ -346,7 +501,8 @@ main {
   text-align: center;
 }
 
-#contacto .description {
+#contacto .p.description {
+  /* Nota: En tu HTML no hay 'p.description', pero lo mantengo por si lo añades */
   max-width: 600px;
   margin: 0 auto 30px;
   line-height: 1.6;
@@ -365,25 +521,26 @@ main {
   display: block;
   margin-bottom: 5px;
   font-weight: 700;
-  color: var(--color-text-light);
+  color: var(--lightest-slate);
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--lightest-navy); /* Borde sutil */
   border-radius: 4px;
   font-size: 16px;
-  background-color: #f7f7f7;
+  background-color: var(--light-navy); /* Fondo del campo de texto */
+  color: var(--lightest-slate);
   transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: var(--color-primary);
+  border-color: var(--green); /* Borde de foco con el color de acento */
   outline: none;
-  box-shadow: 0 0 0 2px rgba(96, 171, 142, 0.2);
+  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
 }
 
 .contact-form .button-main {
@@ -393,21 +550,83 @@ main {
   align-self: center;
 }
 
-/* Responsividad para móviles */
+/* =========================================
+   7. MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+
+@media (max-width: 1080px) {
+  /* Reducir padding horizontal en pantallas medianas */
+  #container {
+    padding: 0 50px;
+  }
+}
+
 @media (max-width: 768px) {
   #container {
     padding: 0 25px;
   }
 
   nav .nav-links {
-    display: none; /* Futuro menu hamburguesa */
+    display: none; /* Ocultar links en móvil para menú hamburguesa (opcional) */
   }
 
+  /* Reducir texto grande en móvil */
   #intro .name {
     font-size: 40px;
   }
 
   #intro .subtitle {
     font-size: 30px;
+  }
+
+  /* Las estadísticas se apilan mejor en móvil */
+  .stats-grid {
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    flex-grow: 1;
+  }
+
+  /* Los proyectos se convierten en una sola columna */
+  .proyecto-item {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .proyecto-contenido {
+    position: static;
+    margin-bottom: 15px;
+    text-align: left !important; /* Asegura la alineación en móviles */
+  }
+
+  .proyecto-titulo {
+    text-align: left !important;
+  }
+
+  .proyecto-imagen {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Restaurar el orden de imagen/contenido para móviles */
+  .proyecto-item.rtl .proyecto-contenido,
+  .proyecto-item.rtl .proyecto-imagen {
+    grid-column: auto;
+  }
+
+  .proyecto-item.rtl .proyecto-contenido {
+    text-align: left;
+  }
+
+  /* El pseudo-elemento de la imagen debe ser menos oscuro en móvil */
+  .proyecto-imagen a::before {
+    opacity: 0.7;
+  }
+
+  #proyectos h2::after,
+  #estudios h2::after {
+    width: 100px;
   }
 }
