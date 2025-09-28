@@ -1,64 +1,44 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Diego Araya - Backend Developer</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <div id="container">
-      <nav>
-        <div class="logo">D</div>
-        <ul class="nav-links">
-          <li><a href="#intro">Sobre mí</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li>
-            <a
-              href="https://github.com/zennoncaca"
-              target="_blank"
-              class="button-resume"
-            >
-              GitHub
-            </a>
-          </li>
-        </ul>
-      </nav>
-
       <main>
         <section id="intro">
           <p class="greeting">Hola, mi nombre es</p>
           <h1 class="name">Diego Araya</h1>
           <h2 class="subtitle">Backend Developer</h2>
           <p class="description">
-            Desarrollador de software especializado en el backend. Mi objetivo
-            es la de construir una base sólida y eficiente. Actualmente busco
-            oportunidades donde pueda contribuir a proyectos desafiantes y
-            seguir creciendo profesionalmente.
+            Desarrollador de software Javascript en Chile, Centrado en Node.js. Tengo experiencia
+            desarrollando software de manera independiente.
           </p>
+
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number">+1</span>
+              <p class="stat-label">Año de experiencia</p>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">+2</span>
+              <p class="stat-label">APIs Desplegadas</p>
+            </div>
+            <div class="stat-item">
+              <span class="stat-text">NodeJs</span>
+              <p class="stat-label">Habilidad Principal</p>
+            </div>
+          </div>
+
           <a href="#proyectos" class="button-main">¡Mira mis proyectos!</a>
         </section>
+
         <section id="proyectos">
-          <h2>Proyectos</h2>
+          <h2>Proyectos Destacados</h2>
           <ul>
             <li class="proyecto-item">
               <div class="proyecto-contenido">
                 <h3 class="proyecto-titulo">API RESTful E-Commerce</h3>
                 <div class="proyecto-descripcion">
                   <p>
-                    Una API completa desarrollada con Node.js, Express y
-                    PostgreSQL para gestionar productos, usuarios y órdenes.
-                    Implementa autenticación segura con JWT.
+                    API construida con clean architecture, implementando un
+                    sistema de autenticación por roles con JWT.
+                  </p>
+                  <p class="tech-stack">
+                    Stack: Node.js, Express, PostgreSQL, JWT
                   </p>
                 </div>
               </div>
@@ -68,8 +48,8 @@
                   target="_blank"
                 >
                   <img
-                    src="images/pic02.jpg"
-                    alt="Captura de pantalla del proyecto E-commerce"
+                    src="images/api-ecommerce-doc.png"
+                    alt="Documentación API"
                   />
                 </a>
               </div>
@@ -78,39 +58,45 @@
             <li class="proyecto-item rtl">
               <div class="proyecto-contenido">
                 <h3 class="proyecto-titulo">
-                  FocusCalm: API de Gestión de Tareas (Node.js/Express/MongoDB)
+                  FocusCalm: API de Gestión de Tareas
                 </h3>
                 <div class="proyecto-descripcion">
                   <p>
-                    Una API RESTful orientada al usuario, diseñada para servir
-                    como el backend de una aplicación móvil de gestión de
-                    tareas. Este proyecto se centra en la implementación de una
-                    arquitectura escalable, y autenticación robusta.
+                    API RESTful para aplicación móvil, construida con MongoDB.
+                    Enfocada en la optimización de consultas para alto
+                    rendimiento y manejo eficiente de estados.
+                  </p>
+                  <p class="tech-stack">
+                    Stack: Node.js, Express, MongoDB 
                   </p>
                 </div>
               </div>
               <div class="proyecto-imagen">
                 <a href="https://github.com/ZennonGihub/Focus-Calm">
                   <img
-                    src="images/pic03.jpg"
-                    alt="Captura de pantalla del proyecto POS"
+                    src="images/focuscalm-architecture.png"
+                    alt="Capturas app"
                   />
                 </a>
               </div>
             </li>
           </ul>
         </section>
+
         <section id="estudios">
-          <h2>Estudios</h2>
+          <h2>Estudios y Desarrollo Profesional</h2>
           <ul class="timeline-list">
             <li class="timeline-item">
               <h3 class="timeline-title">
                 (CURSO) TNS Analista Programador
                 <span class="timeline-institution">CFT San Agustin</span>
               </h3>
-              <p class="timeline-date">2025 - 2026</p>
+              <p class="timeline-date">2025 - 2026 (En curso)</p>
               <div class="timeline-description">
-                <p></p>
+              <!--<p>
+                  Adquisición de bases de desarrollo full-stack, metodologías
+                  ágiles y sistemas de bases de datos relacionales y NoSQL.
+                </p>-->
               </div>
             </li>
 
@@ -121,11 +107,19 @@
               </h3>
               <p class="timeline-date">2024</p>
               <div class="timeline-description">
-                <p>
-                  LLevo estudiando en platzi ya por mas de 1 año, a la vez que
-                  llevo practicando, y trabajando en el desarrollo de api's
+                <p>          
+                  Más de un año dedicado al estudio de manera autodidacta y a la práctica
+                  constante en el desarrollo backend. Me enfoque en la
+                  arquitectura del backend, la seguridad y la escalabilidad de
+                  las aplicaciones. Con eso logre construir múltiples proyectos
+                  funcionales.
                 </p>
-                <a
+                <ul class="tech-list">
+                  <li>Express</li>
+                  <li>Javascript</li>
+                  <li>MySql</li>
+                </ul>
+      <a
                   href="https://platzi.com/p/diegoAraya/"
                   target="_blank"
                   class="button-platzi"
@@ -135,7 +129,54 @@
             </li>
           </ul>
         </section>
+
+        <section id="contacto">
+          <h2>Contáctame</h2>
+          <form
+            action="https://formspree.io/f/REEMPLAZA_ESTO_CON_TU_ID_DE_FORMSPREE"
+            method="POST"
+            class="contact-form"
+          >
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                placeholder="Tu nombre"
+              />
+            </div>
+            <div class="form-group">
+              <label for="_replyto">Correo Electrónico</label>
+              <input
+                type="email"
+                name="_replyto"
+                id="_replyto"
+                required
+                placeholder="tu.correo@ejemplo.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="5"
+                required
+                placeholder="Mensaje"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="button-main">Enviar Mensaje</button>
+          </form>
+        </section>
       </main>
     </div>
+    <div class="custom-cursor"></div>
+
+    <script src="cursor.js"></script>
+</body>
+</html>
   </body>
 </html>
